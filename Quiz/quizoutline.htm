@@ -1,0 +1,333 @@
+<html>
+<head><title>Quiz Management</title>
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src=mark.js>
+</script>
+<script type="text/javascript">
+var c=200;
+function newpage()
+{
+	//formsubmit();
+	var ma=mark();
+	//var myWindow = window.open("", "_self");
+		//window.open("summary.htm")
+		
+		//window.open("http://localhost:80/Quiz/mark.php?mark="+ma)
+		if(ma>=7)
+			document.writeln("<h1>Congratulation! You scored "+ma+" marks</h1>");
+		else
+						document.writeln("<h1>You scored "+ma+" marks</h1>");
+
+	
+let btn = document.createElement("button");
+btn.innerHTML = "Participants";
+btn.onclick = function () {
+  window.open("http://localhost:80/Quiz/mark.php?mark="+ma);
+  
+};
+document.body.appendChild(btn);
+
+let btn1 = document.createElement("button");
+btn1.innerHTML = "Logout";
+btn1.onclick = function () {
+noBack();
+  window.open("http://localhost/Quiz/","_self");
+  
+};
+document.body.appendChild(btn1);
+
+			//window.open("http://localhost/Quiz/summary.php")
+			document.writeln("<link rel=\"stylesheet\" href=\"styles.css\">");
+				
+			document.writeln("<div><table border=\"1\" width=\"100%\" height =\"80%\">")	
+			document.writeln("<thead><tr><th><h2>Your Answer</h2></th><th><h2>Correct Answer</h2></th></tr></thead><tbody>");
+			
+			for(var i=1;i<=15;i++)
+			{
+				if(selectedAnswer[i]!=null  ){
+				if(selectedAnswer[i].value==correctAnswer[i] || selectedAnswer[i].value.toUpperCase()==correctAnswer[i]){
+				document.writeln("<tr class= \"rohit\"><td>"+ selectedAnswer[i].value +"</td><td>"+correctAnswer[i]+"</td></tr>");
+				}
+				else{
+				document.writeln("<tr class= \"red\"><td>"+ selectedAnswer[i].value +"</td><td>"+correctAnswer[i]+"</td></tr>");}
+				}
+				else{
+				document.writeln("<tr class= \"red\"><td>Not Answered</td><td>"+correctAnswer[i]+"</td></tr>");
+				}
+			}
+			document.writeln("</tbody></table></div>")
+			
+const reloadtButton = document.querySelector("#reload");
+// Reload everything:
+function reload() {
+    reload = location.reload();
+}
+// Event listeners for reload
+reloadButton.addEventListener("click", reload, false);
+}
+window.history.forward();
+    function noBack()
+    {
+        window.history.forward();
+    }
+function formsubmit() {
+window.event.returnValue=false;
+if(confirm("Are you sure want to submit?"))
+{
+window.event.returnValue=true;
+newpage();
+}
+}
+		
+function timer001()
+{
+c=c-1;
+if(c<200)
+{
+time001.innerHTML =c;
+} 
+if(c==0)
+{
+window.clearInterval(update);
+alert("Time up");
+//var ma=mark();
+newpage()
+//window.location.href="http://localhost/Quiz/summary.php"
+} 
+}
+update=setInterval("timer001()",1000);
+
+</script>
+
+<style>
+
+
+	
+	p{
+		background-color:skyblue;
+		font-size: 20px;
+		border-radius: 20px;
+		
+	}
+	h1{
+		color:yellow;
+		font-size: 40px;
+		text-align:center;
+		border-radius: 60px;
+		box-shadow: 0 0 5px #02e546,
+            0 0 25px #02e566,
+		0 0 50px #02e546,
+		0 0 100px #02e546;
+
+	}
+	
+	.box { 
+margin-bottom:10px; 
+font-size :18pt; 
+text-align :center; 
+background-color:black;
+padding :8px; 
+width :200px; 
+height :34px; 
+color:white;
+border :10px solid red; 
+-moz-border-radius :40px; 
+-webkit-border-radius:40px; 
+borderradius :40px;
+} 
+.b1 { 
+-moz-border-radius :40px; 
+-webkit-border-radius:40px; 
+borderradius :40px; 
+} 
+</style>
+</head>
+<body>
+
+<h1>Quiz Management</h1>
+<div>
+<text><h2 class="box">Time:<text id="time001">200</h2></text></text><br/>
+</div>
+<form action="#" method="post">
+<div><p><b>1.Who is the father of our nation?</b>
+				</br><input type="radio" id="aid11" name="q1" value="Nehru">
+				<label for="aid11">Nehru</label><br>
+				<input type="radio" id="aid12" name="q1" value="Gandhiji">
+				<label for="aid12">Gandhiji</label><br>
+				<input type="radio" id="aid13" name="q1" value="Subash Chandra Bose">
+				<label for="aid13">Subash Chandra Bose</label><br>
+				<input type="radio" id="aid14" name="q1" value="None of these">
+				<label for="aid14">None of these</label><br></p>
+</div>
+<p><b>2.When was National Disaster Response Force formed?</b>
+				</br><input type="radio" id="aid21" name="q2" value="2005">
+				<label for="aid21">2005</label><br>
+				<input type="radio" id="aid22" name="q2" value="2006">
+				<label for="aid22">2006</label><br>
+				<input type="radio" id="aid23" name="q2" value="2014">
+				<label for="aid23">2014</label><br>
+				<input type="radio" id="aid24" name="q2" value="2015">
+				<label for="aid24">2015</label><br>
+
+	
+</p>
+<p><b>3.AHP was introduced by?</b>
+				</br><input type="radio" id="aid31" name="q3" value="Yaard">
+				<label for="aid31">Yaard</label><br>
+				<input type="radio" id="aid32" name="q3" value="Fore Cast">
+				<label for="aid32">Fore Cast</label><br>
+				<input type="radio" id="aid33" name="q3" value="Saaty">
+				<label for="aid33">Saaty</label><br>
+				<input type="radio" id="aid34" name="q3" value="Tomson Ray">
+				<label for="aid34">Tomson Ray</label><br>
+
+	
+</p>
+<p><b>4.CRUD operations are?</b>
+				</br><input type="radio" id="aid41" name="q4" value="Create,Update,Select,Delete">
+				<label for="aid41">Create,Update,Select,Delete</label><br>
+				<input type="radio" id="aid42" name="q4" value="Create,Read,Update,Delete">
+				<label for="aid42">Create,Read,Update,Delete</label><br>
+				<input type="radio" id="aid43" name="q4" value="Create,Select,Update,Delete">
+				<label for="aid43">Create,Select,Update,Delete</label><br>
+				<input type="radio" id="aid44" name="q4" value="Select,Update,Delete,Read">
+				<label for="aid44">Select,Update,Delete,Read</label><br>
+
+	
+</p>
+<p><b>5.Satty scale ranges from?</b>
+				</br><input type="radio" id="aid51" name="q5" value="1-9">
+				<label for="aid51">1-9</label><br>
+				<input type="radio" id="aid52" name="q5" value="0-9">
+				<label for="aid52">0-9</label><br>
+				<input type="radio" id="aid53" name="q5" value="0-10">
+				<label for="aid53">0-10</label><br>
+				<input type="radio" id="aid54" name="q5" value="1-10">
+				<label for="aid54">1-10</label><br>
+
+	
+</p>
+<p><b>6.Which command is used to removing a collection of food in MongoDB?</b>
+				</br><input type="radio" id="aid61" name="q6" value="drop table food">
+				<label for="aid61">drop table food</label><br>
+				<input type="radio" id="aid62" name="q6" value="db.food.drop()">
+				<label for="aid62">db.food.drop()</label><br>
+				<input type="radio" id="aid63" name="q6" value="db.drop.food()">
+				<label for="aid63">db.drop.food()</label><br>
+				<input type="radio" id="aid64" name="q6" value="db.drop(food)">
+				<label for="aid64">db.drop(food)</label><br>
+
+	
+</p>
+<p><b>7.What is the universal function for & in numpy?</b>
+				</br><input type="radio" id="aid71" name="q7" value="np.boolean_and()">
+				<label for="aid71">np.boolean_and()</label><br>
+				<input type="radio" id="aid72" name="q7" value="np.bitwise_and()">
+				<label for="aid72">np.bitwise_and()</label><br>
+				<input type="radio" id="aid73" name="q7" value="np.boolean.and()">
+				<label for="aid73">np.boolean.and()</label><br>
+				<input type="radio" id="aid74" name="q7" value="np.bitwise.and()">
+				<label for="aid74">np.bitwise.and()</label><br>
+
+	
+</p>
+<p><b>8.Fork and Join is comes under?</b>
+				</br><input type="radio" id="aid81" name="q8" value="Activity diagram">
+				<label for="aid81">Activity diagram</label><br>
+				<input type="radio" id="aid82" name="q8" value="Use case diagram">
+				<label for="aid82">Use case diagram</label><br>
+				<input type="radio" id="aid83" name="q8" value="State Machine Diagram">
+				<label for="aid83">State Machine Diagram</label><br>
+				<input type="radio" id="aid84" name="q8" value="Class Diagram">
+				<label for="aid84">Class Diagram</label><br>
+
+	
+</p>
+<p><b>9.Symmetric key is otherwise known as?</b>
+				</br><input type="radio" id="aid91" name="q9" value="Shared key">
+				<label for="aid91">Shared key</label><br>
+				<input type="radio" id="aid92" name="q9" value="Single key">
+				<label for="aid92">Single key</label><br>
+				<input type="radio" id="aid93" name="q9" value="One key">
+				<label for="aid93">One key</label><br>
+				<input type="radio" id="aid94" name="q9" value="All of these">
+				<label for="aid94">All of these</label><br>
+
+	
+</p>
+<p><b>10.Does RSA algorithm uses both public and private key ?</b>
+				</br><input type="radio" id="aid101" name="q10" value="True">
+				<label for="aid101">True</label><br>
+				<input type="radio" id="aid102" name="q10" value="False">
+				<label for="aid102">False</label><br>
+			
+
+	
+</p>
+<p><b>11.A business man choose the best alternative if the payoff condition is given ?</b>
+				</br><input type="radio" id="aid111" name="q11" value="Cost">
+				<label for="aid111">Cost</label><br>
+				<input type="radio" id="aid112" name="q11" value="Time">
+				<label for="aid112">Time</label><br>
+				<input type="radio" id="aid113" name="q11" value="Profit">
+				<label for="aid113">Profit</label><br>
+				<input type="radio" id="aid114" name="q11" value="All of these">
+				<label for="aid114">All of these</label><br>
+
+	
+</p>
+<p><b>12. What is the output for the following program?<br>int a=2;<br>for(int i=1;i<=5;i++)<br>{<br>a=a*2;<br>cout << a;<br>}</b>
+				</br><input type="radio" id="aid121" name="q12" value="4 4 4 4 4">
+				<label for="aid121">4 4 4 4 4</label><br>
+				<input type="radio" id="aid122" name="q12" value="4 6 8 10 12">
+				<label for="aid122">4 6 8 10 12</label><br>
+				<input type="radio" id="aid123" name="q12" value="4 8 16 32 64">
+				<label for="aid123">4 8 16 32 64</label><br>
+				<input type="radio" id="aid124" name="q12" value="4 8 32 64 128">
+				<label for="aid124">4 8 32 64 128</label><br>
+
+	
+</p>
+<p><b>13. Why the author give the program name is python?</b>
+				</br><input type="radio" id="aid131" name="q13" value="Python is the name of the author">
+				<label for="aid131">Python is the name of the author</label><br>
+				<input type="radio" id="aid132" name="q13" value="Most of the developers consider python programming is like a poison">
+				<label for="aid132">Most of the developers consider python programming is like a poison</label><br>
+				<input type="radio" id="aid133" name="q13" value="It has some intendation like a shape of snake">
+				<label for="aid133">It has some intendation like a shape of snake</label><br>
+				<input type="radio" id="aid134" name="q13" value="The author favourite pet is snake so he named the program as python">
+				<label for="aid134">The author favourite pet is snake so he named the program as python</label><br>
+
+	
+</p>
+<p><b>14. Identify the name of the Queen?</b><br>
+<img src="download.jfif" height="400" width="30%" /></br>
+<br><input type="radio" id="aid141" name="q14" value="Velu Nachiyar">
+				<label for="aid141">Velu Nachiyar</label><br>
+				<input type="radio" id="aid142" name="q14" value="Rani Lakshmi Bhai">
+				<label for="aid142">Rani Lakshmi Bhai</label><br>
+				<input type="radio" id="aid143" name="q14" value="Victoria">
+				<label for="aid143">Victoria</label><br>
+			
+</p>
+<p><b>15. How many faces you find in this picture?</b><br>
+<img src="p6.jpg" height="400" width="30%" />
+</br></br><input type="radio" id="aid151" name="q15" value="07">
+				<label for="aid151">07</label><br>
+				<input type="radio" id="aid152" name="q15" value="08">
+				<label for="aid152">08</label><br>
+				<input type="radio" id="aid153" name="q15" value="09">
+				<label for="aid153">09</label><br>
+				<input type="radio" id="aid154" name="q15" value="10">
+				<label for="aid154">10</label><br>
+</form>
+</p>
+<button class="btnn">
+<input type="submit" value="Submit" id="bt1s" onclick="formsubmit()"/></button>
+<button ><input type="reset" id="bt1r" value="Clear" /></button>
+
+
+</body>
+</html>
+
+
